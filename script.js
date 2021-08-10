@@ -199,3 +199,56 @@ const numerosFinal = numeros.reduce((acc, curr) => {
 }, '')
 
 console.log(numerosFinal)
+
+/**
+ * JSON
+ * 
+ * Javascript Object Notation
+ * 
+ */
+
+const objeto = {
+  nome: 'Patrick',
+  idade: 35
+}
+
+const json = JSON.stringify(objeto) //transforma o objeto em string JSON
+
+//para utilizar o JSON no javascript, precisa transformar ele em parse
+const jsonParseado = JSON.parse(json)
+
+console.log(`${objeto.nome} - ${objeto.idade}`)
+console.log(`isso é um JSON: ${json}`)
+console.log(`Idade extraida do JSON: ${jsonParseado.idade}`)
+
+/**
+ * LOCAL STORAGE
+ * 
+ * 
+ */
+
+localStorage.setItem('tarefa', 'estudar javascript') //adiciona item no localstorage ('key', 'value')
+
+const valor = localStorage.getItem('tarefa') //pegar o item no local storage ('key')
+
+console.log(valor)
+
+// JSON de tarefas
+
+const tarefas = [
+  { tarefa: 'estudar js' },
+  { tarefa: 'estudar node.js' },
+  { tarefa: 'estudar react.js' }
+]
+
+const tarefasJson = JSON.stringify(tarefas) //transforma o ARRAY em Sting JSON
+
+localStorage.setItem('tasks', tarefasJson) //salva o JSON dentro do Local Storage na chave 'task'
+
+const listaTarefasSalvas = localStorage.getItem('tasks')
+
+console.log(listaTarefasSalvas) //traz uma string
+
+const listaTarefasObj = JSON.parse(listaTarefasSalvas) // transforma a string em array
+
+console.log(listaTarefasObj) // lista o array do localstorage
